@@ -102,7 +102,7 @@ export const products = [
       "https://github.com/Alex962012/jasteria-img/blob/main/%D0%A8%D0%B0%D0%BF%D0%BA%D0%B0%20%D0%B8%D0%B7%20%D0%BC%D0%B5%D1%80%D0%B8%D0%BD%D0%BE%D1%81%D0%B0%20%D1%81%20%D0%BE%D0%B4%D0%BD%D0%B8%D0%BC%20%D0%BE%D1%82%D0%B2%D0%BE%D1%80%D0%BE%D1%82%D0%BE%D0%BC/20230223_162917.jpg?raw=true",
     title: "Шапка из мериноса с одним отворотом",
     price: 2700,
-    season: 1,
+    season: 2,
     images: [
       "https://github.com/Alex962012/jasteria-img/blob/main/%D0%A8%D0%B0%D0%BF%D0%BA%D0%B0%20%D0%B8%D0%B7%20%D0%BC%D0%B5%D1%80%D0%B8%D0%BD%D0%BE%D1%81%D0%B0%20%D1%81%20%D0%BE%D0%B4%D0%BD%D0%B8%D0%BC%20%D0%BE%D1%82%D0%B2%D0%BE%D1%80%D0%BE%D1%82%D0%BE%D0%BC/20230223_162917.jpg?raw=true",
       "https://github.com/Alex962012/jasteria-img/blob/main/%D0%A8%D0%B0%D0%BF%D0%BA%D0%B0%20%D0%B8%D0%B7%20%D0%BC%D0%B5%D1%80%D0%B8%D0%BD%D0%BE%D1%81%D0%B0%20%D1%81%20%D0%BE%D0%B4%D0%BD%D0%B8%D0%BC%20%D0%BE%D1%82%D0%B2%D0%BE%D1%80%D0%BE%D1%82%D0%BE%D0%BC/104.jpeg?raw=true",
@@ -180,7 +180,7 @@ export const products = [
       "https://github.com/Alex962012/jasteria-img/blob/main/%D0%9C%D0%B0%D0%BD%D0%B8%D1%88%D0%BA%D0%B0%20%D0%B8%D0%B7%20%D0%BC%D0%B5%D1%80%D0%B8%D0%BD%D0%BE%D1%81%D0%B0/IMG_20221124_114722_863.jpg?raw=true",
     title: "Манишка из мериноса",
     price: 3000,
-    season: 1,
+    season: 2,
     images: [
       "https://github.com/Alex962012/jasteria-img/blob/main/%D0%9C%D0%B0%D0%BD%D0%B8%D1%88%D0%BA%D0%B0%20%D0%B8%D0%B7%20%D0%BC%D0%B5%D1%80%D0%B8%D0%BD%D0%BE%D1%81%D0%B0/IMG_20221124_114722_863.jpg?raw=true",
     ],
@@ -195,7 +195,7 @@ export const products = [
       "https://zamki-vek.ru/upload/iblock/d1d/jq81c8kbd6y5baio5wwqlkd1zt0um29w.jpg",
     title: "Шапка-бини из мериноса ",
     price: 2300,
-    season: 1,
+    season: 2,
     images: [
       "https://zamki-vek.ru/upload/iblock/d1d/jq81c8kbd6y5baio5wwqlkd1zt0um29w.jpg",
     ],
