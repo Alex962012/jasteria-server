@@ -8,6 +8,7 @@ const parserMiddleware = bodyParser({});
 app.use(parserMiddleware);
 
 app.use("/products", productsRoute);
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
