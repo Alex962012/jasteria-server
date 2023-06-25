@@ -11,6 +11,10 @@ productsRoute.get("/", (req: Request, res: Response) => {
     Number(req.query.typeYarn)
   );
 
+  const productSeason = productsRepository.getProductSeason(
+    Number(req.query.season)
+  );
+
   if (req.query.typeName && req.query.typeYarn && req.query.season) {
     const result = productsRepository.getProductYarnNameSeason(
       Number(req.query.typeName),
@@ -42,6 +46,8 @@ productsRoute.get("/", (req: Request, res: Response) => {
     res.send(productTypeName);
   } else if (req.query.typeYarn) {
     res.send(productTypeYarn);
+  } else if (req.query.season) {
+    res.send(productSeason);
   } else {
     res.send(products);
   }

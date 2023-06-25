@@ -28,6 +28,13 @@ export const productsRepository = {
       return products;
     }
   },
+  getProductSeason(season: number) {
+    if (season > 0) {
+      return products.filter((p) => p.season === season);
+    } else {
+      return products;
+    }
+  },
   getProductByTypeYarn(typeYarn: number) {
     if (typeYarn > 0) {
       return products.filter((p) => p.typeYarn === typeYarn);
