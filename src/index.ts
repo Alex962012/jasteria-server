@@ -6,7 +6,8 @@ const port = process.env.PORT || 5000;
 
 const parserMiddleware = bodyParser({});
 app.use(parserMiddleware);
-
+var cors = require("cors");
+app.use(cors());
 app.use("/products", productsRoute);
 
 app.listen(port, () => {
