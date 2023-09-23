@@ -1,7 +1,9 @@
 import { Router, Request, Response } from "express";
 import { productsRepository } from "../repositories/products-repository";
-import { products } from "../products";
+// import { products } from "../products";
 export const productsRoute = Router({});
+import Products from "../models/Products";
+const products = Products.find([]);
 
 productsRoute.get("/", (req: Request, res: Response) => {
   const productTypeName = productsRepository.getProductByTypeName(
