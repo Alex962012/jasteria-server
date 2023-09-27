@@ -9,21 +9,21 @@ const ProductSchema = new mongoose.Schema({
     required: true,
   },
   price: {
-    type: Number,
+    type: String,
     required: true,
   },
   season: {
-    type: Number,
+    type: String,
   },
   images: [{ type: String }],
   description: {
     type: String,
   },
   typeYarn: {
-    type: Number,
+    type: String,
   },
   typeName: {
-    type: Number,
+    type: String,
   },
 });
 export default mongoose.model("Product", ProductSchema);
