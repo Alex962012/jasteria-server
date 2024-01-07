@@ -1,28 +1,47 @@
 import express from "express";
-import bodyParser from "body-parser";
-
+import "dotenv/config";
 import mongoose from "mongoose";
 import cors from "cors";
-import { productsRoute } from "./routes/products-router";
-import { authRoute } from "./routes/authRouter";
-import { newProductsRoute } from "./routes/newProductsRoute";
+import bodyParser from "body-parser";
+
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+import fileUpload from "express-fileupload";
+
+import { authRoute } from "./routes/authRouter.js";
+import { typesRoute } from "./routes/typesRouter.js";
+import { yarnsRoute } from "./routes/yarnsRouter.js";
+import { seasonRoute } from "./routes/seasonsRouter.js";
+import { newProductsRoute } from "./routes/newProductsRoute.js";
+
 mongoose
   .connect(
     "mongodb+srv://alex96201296:nissan12@cluster0.m1rouyv.mongodb.net/blog?retryWrites=true&w=majority"
   )
   .then(() => console.log("db ok"))
-  .catch((err) => console.log("db error", err));
+  .catch((err:any) => console.log("db error", err));
+
+
+
 
 const app = express();
 const port = process.env.PORT || 5000;
-const parserMiddleware = bodyParser({});
-app.use(parserMiddleware);
-app.use(express.json());
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+console.log(__dirname)
+app.use('/images', express.static(__dirname + '/images'));
+app.use(fileUpload({}));
+app.use(bodyParser.json())
+// app.use(upload.array());
 app.use(cors());
 
 app.use("/newProducts", newProductsRoute);
 app.use("/auth", authRoute);
-
+app.use("/type", typesRoute);
+app.use("/season", seasonRoute);
+app.use("/yarn", yarnsRoute);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });

@@ -8,10 +8,10 @@ import {
   remove,
   getAll,
   filter,
-} from "../controllers/productsController";
-import { productValidation } from "../utils/validator";
+} from "../controllers/productsController.js";
+import { productValidation } from "../utils/validator.js";
 newProductsRoute.get("/getAll", getAll);
-newProductsRoute.post("/add", productValidation, add);
+newProductsRoute.post("/add", add);
 newProductsRoute.put("/update/:id", productValidation, update);
 newProductsRoute.delete("/remove/:id", remove);
 newProductsRoute.get("/filter", filter);

@@ -2,7 +2,6 @@ import { Router, Request, Response } from "express";
 import { check } from "express-validator";
 export const authRoute = Router({});
 
-import { register, login, getUsers } from "../controllers/authController";
+import {  registration, login } from "../controllers/authController.js";
 authRoute.post("/login", login);
-authRoute.post("/register", register);
-authRoute.post("/getUsers", getUsers);
+authRoute.post("/registration",  registration);

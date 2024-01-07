@@ -1,29 +1,25 @@
 import mongoose from "mongoose";
 const ProductSchema = new mongoose.Schema({
-  imageUrl: {
-    type: String,
-    required: true,
-  },
+  imageUrl: [{ type: String }],
   title: {
     type: String,
-    required: true,
   },
   price: {
-    type: Number,
-    required: true,
+    type: String,
+
   },
   season: {
-    type: Number,
+    type: String,
   },
-  images: [{ type: String }],
+  yarn: {
+    type: String,
+  },
+  type: {
+    type: String,
+  },
   description: {
     type: String,
   },
-  typeYarn: {
-    type: Number,
-  },
-  typeName: {
-    type: Number,
-  },
+
 });
 export default mongoose.model("Product", ProductSchema);

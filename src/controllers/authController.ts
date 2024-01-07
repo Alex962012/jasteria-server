@@ -1,59 +1,59 @@
-import UserModal from "../models/Users.js";
-import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
+import User from "../models/Users.js";
+import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
-const generateAccessToken = (id: any) => {
-  const payload = {
-    id,
-  };
-  return jwt.sign(payload, `${process.env.JWT_SECRET_KEY}`, {
-    expiresIn: "24h",
-  });
-};
+const secret:string= "" +process.env.SECRET_KEY;
+const generateJwt = (id:any, email:any) => {
+    return jwt.sign(
+        { id: id, email},
+        secret,
+        { expiresIn: '20h' })
+}
 
-export const register = async (req: any, res: any) => {
-  try {
-    res.json("register");
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({ message: "Не удалось зарегистрироваться" });
-  }
-};
-export const login = async (req: any, res: any) => {
-  try {
-    const { email, passwordHash } = req.body;
-    const user = await UserModal.findOne({ email });
-    if (!user) {
-      return res
-        .send(400)
-        .json({ message: `Пользователь : ${email} не найден` });
+export const registration = async (req:any, res:any) => {
+    try {
+        const { email, password } = req.body
+        if (!email || !password) {
+            return res.status(500).json({ message: "Не корректно указан емайл и пароль" });
+        }
+        const candidate = await User.findOne({ email })
+        if (candidate) {
+            return res.status(500).json({ message: "Пользователь уже существует" });
+        }
+        const hashPassword = await bcrypt.hash(password, 5)
+        const user = await User.create({ email, password: hashPassword })
+        const token = generateJwt(user.id, user.email)
+        return res.json({token })
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ message: "Не удалось создать пользователя" });
     }
-    const validPassword = bcrypt.compareSync(passwordHash, user.passwordHash);
-    if (!validPassword) {
-      return res.status(400).json({ message: `Неверный пароль` });
+};
+export const login = async (req:any, res:any) => {
+    try {
+        const { email, password } = req.body
+        const user = await User.findOne({ email })//
+        if (!user) {
+            return res.status(500).json({ message: "Пользователь не найден" });
+        }
+        let comparePassword = bcrypt.compareSync(password, user.password)
+        if (!comparePassword) {
+            return res.status(500).json({ message: "Неверный пароль" });
+        }
+        const token = generateJwt(user._id, user.email)
+        return res.json({token })
+    } catch (e) {
+        console.log(e);
+        res.status(500).json({ message: "Не удалось авторизоваться" });
     }
-    const token = generateAccessToken(user._id);
-    return res.json({ token });
-  } catch (err) {
-    console.log(err);
-
-    res.status(500).json({ message: "Не удалось войти" });
-  }
 };
 
-export const getUsers = async (req: any, res: any) => {
-  try {
-    // const hash = bcrypt.hashSync("nissan12@", 7);
-    // const admin = new UserModal({
-    //   fullName: "admin",
-    //   email: "alex.86@mail.ru",
-    //   passwordHash: hash,
-    // });
-    // await admin.save();
-    // res.json("save");
-    res.json("ss");
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({ message: "Не удалось зарегистрироваться" });
-  }
+export const check = async (req:any, res:any) => {
+    try {
+
+        res.json({ message: 'all' });
+    } catch (e) {
+        console.log(e);
+        res.status(500).json({ message: "Не задан id" });
+    }
 };
