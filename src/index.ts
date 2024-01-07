@@ -14,7 +14,7 @@ import { typesRoute } from "./routes/typesRouter.js";
 import { yarnsRoute } from "./routes/yarnsRouter.js";
 import { seasonRoute } from "./routes/seasonsRouter.js";
 import { newProductsRoute } from "./routes/newProductsRoute.js";
-
+import serverless from "serverless-http";
 mongoose
   .connect(
     "mongodb+srv://alex96201296:nissan12@cluster0.m1rouyv.mongodb.net/blog?retryWrites=true&w=majority"
@@ -45,3 +45,4 @@ app.use("/yarn", yarnsRoute);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+export const handler = serverless(app);
