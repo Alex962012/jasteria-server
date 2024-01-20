@@ -26,7 +26,7 @@ mongoose
 
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 2000;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -37,11 +37,11 @@ app.use(bodyParser.json())
 // app.use(upload.array());
 app.use(cors());
 
-app.use("/newProducts", newProductsRoute);
-app.use("/auth", authRoute);
-app.use("/type", typesRoute);
-app.use("/season", seasonRoute);
-app.use("/yarn", yarnsRoute);
+app.use("/api/newProducts", newProductsRoute);
+app.use("/api/auth", authRoute);
+app.use("/api/type", typesRoute);
+app.use("/api/season", seasonRoute);
+app.use("/api/yarn", yarnsRoute);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
