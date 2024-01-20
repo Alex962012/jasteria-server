@@ -1,5 +1,5 @@
-import { body } from "express-validator";
-
+import pkg from 'express-validator';
+const { body } = pkg;
 export const productValidation = [
   body("imageUrl", "Укажите ссылку на изображение").isURL(),
   body("title", "Укажите название товара").isLength({ min: 3 }),
