@@ -1,4 +1,5 @@
-import { Router, Request, Response } from "express";
+import pkg from 'express';
+const { Router } = pkg;
 
 export const newProductsRoute = Router({});
 

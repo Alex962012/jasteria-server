@@ -1,5 +1,5 @@
-import { Router, Request, Response } from "express";
-import { check } from "express-validator";
+import pkg from 'express';
+const { Router } = pkg;
 export const authRoute = Router({});
 
 import {  registration, login } from "../controllers/authController.js";

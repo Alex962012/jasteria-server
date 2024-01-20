@@ -1,5 +1,5 @@
-import { Router, Request, Response } from "express";
-import { check } from "express-validator";
+import pkg from 'express';
+const { Router } = pkg;
 export const typesRoute = Router({});
 
 import {  getAll, add } from "../controllers/typesController.js";
