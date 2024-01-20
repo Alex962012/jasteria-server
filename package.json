@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch-ts": "tsc -w",
     "inspect": "nodemon --inspect dist/index.js",
-    "build": "tsc",
+    "build": "tsc --build",
     "start": "node dist/index.js"
   },
   "keywords": [],
