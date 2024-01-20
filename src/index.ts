@@ -25,7 +25,7 @@ import { newProductsRoute } from "./routes/newProductsRoute.js";
 
 
 const app = express();
-const port = process.env.PORT || 2000;
+const port = process.env.PORT || 5000;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
