@@ -46,7 +46,8 @@ const start = async () => {
         mongoose
             .connect(
             //   "mongodb+srv://alex96201296:nissan12@cluster0.m1rouyv.mongodb.net/blog?retryWrites=true&w=majority"
-                'mongodb://localhost/test', { useCreateIndex: true, useNewUrlParser: true }as ConnectOptions
+                'mongodb://localhost/test', {  useNewUrlParser: true, 
+                useUnifiedTopology: true  }as ConnectOptions
             )
             .then(() => console.log("db ok"))
             .catch((err) => console.log("db error", err));
