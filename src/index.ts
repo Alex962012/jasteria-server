@@ -14,14 +14,6 @@ import { yarnsRoute } from "./routes/yarnsRouter.js";
 import { seasonRoute } from "./routes/seasonsRouter.js";
 import { newProductsRoute } from "./routes/newProductsRoute.js";
 
-// mongoose
-//   .connect(
-//     "mongodb+srv://alex96201296:nissan12@cluster0.m1rouyv.mongodb.net/blog?retryWrites=true&w=majority"
-//   )
-//   .then(() => console.log("db ok"))
-//   .catch((err:any) => console.log("db error", err));
-
-
 
 
 const app = express();
@@ -45,8 +37,8 @@ const start = async () => {
     try {
         mongoose
             .connect(
-              "mongodb+srv://alex96201296:nissan12@cluster0.m1rouyv.mongodb.net/blog?retryWrites=true&w=majority"
-                // 'mongodb://localhost/test',
+            //   "mongodb+srv://alex96201296:nissan12@cluster0.m1rouyv.mongodb.net/blog?retryWrites=true&w=majority"
+                'mongodb://localhost/test',
             )
             .then(() => console.log("db ok"))
             .catch((err) => console.log("db error", err));
