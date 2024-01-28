@@ -26,7 +26,7 @@ app.use('/images', express.static(__dirname + '/images'));
 app.use(fileUpload({}));
 app.use(express.json());
 // app.use(upload.array());
-// app.use(cors());
+app.use(cors());
 
 app.use("/api/newProducts", newProductsRoute);
 app.use("/api/auth", authRoute);
@@ -37,8 +37,8 @@ const start = async () => {
     try {
         mongoose
             .connect(
-            //   "mongodb+srv://alex96201296:nissan12@cluster0.m1rouyv.mongodb.net/blog?retryWrites=true&w=majority"
-                'mongodb://localhost/test',
+              "mongodb+srv://alex96201296:nissan12@cluster0.m1rouyv.mongodb.net/blog?retryWrites=true&w=majority"
+                // 'mongodb://localhost/test',
             )
             .then(() => console.log("db ok"))
             .catch((err) => console.log("db error", err));

@@ -46,6 +46,7 @@ export const add = async (req: any, res: any) => {
       description: req.body.description,
       yarn: req.body.yarn,
       type: req.body.type,
+      homePage:req.body.homePage
     });
     const result = await newProduct.save();
     res.json( req.body.title);

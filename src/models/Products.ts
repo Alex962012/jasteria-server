@@ -20,6 +20,9 @@ const ProductSchema = new mongoose.Schema({
   description: {
     type: String,
   },
+  homePage:{
+    type:Boolean
+  }
 
 });
 export default mongoose.model("Product", ProductSchema);

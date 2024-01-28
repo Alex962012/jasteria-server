@@ -19,3 +19,20 @@ export const add = async (req:any, res:any) => {
         res.status(500).json({ message: "Не удалось создать тип товара" });
     }
 };
+export const remove = async (req:any, res:any) => {
+    try {
+        const postId = req.params.id;
+        try {
+          await Type.findOneAndDelete({
+            _id: postId,
+          });
+          res.json({ message: postId });
+        } catch (err) {
+          console.log(err);
+          res.status(500).json({ message: "Error" });
+        }
+    } catch (e) {
+        console.log(e);
+        res.status(500).json({ message: "Не удалось удалить товар" });
+    }
+};
