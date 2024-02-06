@@ -6,7 +6,6 @@ const ProductSchema = new mongoose.Schema({
   },
   price: {
     type: String,
-
   },
   season: {
     type: String,
@@ -20,9 +19,11 @@ const ProductSchema = new mongoose.Schema({
   description: {
     type: String,
   },
-  homePage:{
-    type:Boolean
-  }
-
+  homePage: {
+    type: Boolean,
+  },
+  label: {
+    type: String,
+  },
 });
 export default mongoose.model("Product", ProductSchema);
